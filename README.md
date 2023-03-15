@@ -6,9 +6,9 @@ Du kan lese [ordliste ved botn av dokumentet](#ordliste).
 ### PowerShell
 #### Slette alle avgreiningar frå hovudgreina som er samenslått med hovudgreina.
 ```ps
-git branch | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne '* test'} | ForEach-Object { git branch -d $_ }
+git branch | ForEach-Object { $_.Trim() } | { $_ -ne '* hovud' -and $_ -ne 'hovud' } | ForEach-Object { git branch -d $_ }
 ```
-Her er hovudgreina eksplisitt spesifiert som `test`. Det må endrast for kva enn depot du arbeidar i.
+Her er hovudgreina eksplisitt spesifiert som `hovud`. Det må endrast for kva enn depot du arbeidar i.
 
 ### Gitub-aksjon (ubuntu-latest)
 #### Sjekke om du har endra på filar i ei gitt mappe frå hovudgreina
@@ -24,6 +24,11 @@ git diff --name-only origin/${{ github.event.pull_request.base.ref }} HEAD | gre
 Norsk           | Engelsk 
 :--             | :-- 
 Depot           | Repository
-Grein           | Default branch
-Avgreining      | Branch which is not default branch
+Hovudgrein      | Default branch
+Grein           | Any branch
+Avgreining      | Any branch, which has been checked out of another branch
+Utsjekk         | Checkout
+Dytt            | Push
+Dra ned         | Pull
+Avlevering      | Commit
 Github-aksjon   | GitHub Action
