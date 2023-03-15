@@ -12,6 +12,3 @@
 |Dra ned         | Pull|
 |Avlevering      | Commit|
 |Github-aksjon   | GitHub Action|
-
-## Navigering
-[Hovudsida](../README.md)

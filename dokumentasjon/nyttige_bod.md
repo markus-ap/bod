@@ -29,6 +29,3 @@ git diff --name-only origin/${{ github.event.pull_request.base.ref }} HEAD | gre
 ```
 
 `.*src/${{ env.project }}/.*` er regex for dei filane du vil sjekke. Den her vil spesifikt sjekke om ei fil sitt fulle namn inneheld `src/<INNHALD AV VARIABEL>/`. I depoet denne aksjonen ble skrevet for så var strukturen at kvart prosjekt lå i eiga mappe i `src/`. 
-
-## Navigering
-[Hovudsida](../README.md)
