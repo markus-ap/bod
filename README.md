@@ -4,11 +4,24 @@ Du kan lese [ordliste ved botn av dokumentet](#ordliste).
 
 ## Git
 ### PowerShell
+#### Finne hovudgreina av depotet du står i
+```ps
+git remote show origin | ForEach-Object { $_.Trim() } | Where-Object { $_ -match "HEAD branch:" } | ForEach-Object { $_ -replace "HEAD branch:", '' }
+```
+
 #### Slette alle avgreiningar frå hovudgreina som er samenslått med hovudgreina.
 ```ps
 git branch | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne '* hovud' -and $_ -ne 'hovud' } | ForEach-Object { git branch -d $_ }
 ```
 Her er hovudgreina eksplisitt spesifiert som `hovud`. Det må endrast for kva enn depot du arbeidar i.
+
+##### Utan å vite hovudgreina
+```ps
+$hovudgrein = (git remote show origin | ForEach-Object { $_.Trim() } | Where-Object { $_ -match "HEAD branch:" } | ForEach-Object { $_ -replace "HEAD branch:", '' })
+
+git branch | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "* $hovudgrein" -and $_ -ne $hovudgrein } | ForEach-Object { git branch -d $_ }
+```
+
 
 ### Gitub-aksjon (ubuntu-latest)
 #### Sjekke om du har endra på filar i ei gitt mappe frå hovudgreina
