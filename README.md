@@ -6,7 +6,7 @@ Du kan lese [ordliste ved botn av dokumentet](#ordliste).
 ### PowerShell
 #### Slette alle avgreiningar frå hovudgreina som er samenslått med hovudgreina.
 ```ps
-git branch | ForEach-Object { $_.Trim() } | { $_ -ne '* hovud' -and $_ -ne 'hovud' } | ForEach-Object { git branch -d $_ }
+git branch | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne '* hovud' -and $_ -ne 'hovud' } | ForEach-Object { git branch -d $_ }
 ```
 Her er hovudgreina eksplisitt spesifiert som `hovud`. Det må endrast for kva enn depot du arbeidar i.
 
