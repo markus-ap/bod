@@ -1,4 +1,5 @@
 # Ordliste
+
 |Norsk           | Engelsk |
 |:--             | :-- |
 |Bod             | Command|
