@@ -1,6 +1,7 @@
 # Ordliste
 Norsk           | Engelsk 
 :--             | :-- 
+Bod             | Command
 Depot           | Repository
 Hovudgrein      | Default branch
 Grein           | Any branch
